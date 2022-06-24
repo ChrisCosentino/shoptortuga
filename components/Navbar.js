@@ -10,10 +10,23 @@ import { MENU_ITEMS } from 'constants/navItems';
 import getStripe from 'libs/stripe';
 import { fetchPostJSON } from 'libs/stripeHelpers';
 
-const MobileMenu = () => {
+const MobileMenu = ({ toggleDrawer }) => {
   return (
-    <div>
-      <h1>Menu</h1>
+    <div className='p-4'>
+      <Logo />
+
+      <div className='flex flex-col mt-6'>
+        {MENU_ITEMS.map((item) => (
+          <Link href={item.to}>
+            <a
+              className='p-2 hover:bg-slate-100 rounded-md'
+              onClick={() => toggleDrawer()}
+            >
+              {item.title}
+            </a>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 };
@@ -62,7 +75,7 @@ const Navbar = () => {
               </a>
             }
           >
-            <MobileMenu />
+            <MobileMenu toggleDrawer={toggleMobileNavDrawer} />
           </Drawer>
           {/* <label tabindex='0' className='btn btn-ghost lg:hidden'>
             <MenuIcon />
@@ -100,9 +113,10 @@ const Navbar = () => {
         </div>
 
         <Link href='/'>
-          <a className='btn btn-ghost normal-case text-xl'>
+          <Logo />
+          {/* <a className='btn btn-ghost normal-case text-xl'>
             <Logo />
-          </a>
+          </a> */}
         </Link>
       </div>
       <div className='navbar-center hidden lg:flex'>

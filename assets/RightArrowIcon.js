@@ -1,7 +1,7 @@
 const RightArrowIcon = () => {
   return (
     <svg
-      class='fill-current'
+      className='fill-current'
       xmlns='http://www.w3.org/2000/svg'
       width='24'
       height='24'
