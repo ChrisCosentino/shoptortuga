@@ -17,7 +17,7 @@ const MobileMenu = ({ toggleDrawer }) => {
 
       <div className='flex flex-col mt-6'>
         {MENU_ITEMS.map((item) => (
-          <Link href={item.to}>
+          <Link href={item.to} key={item.to}>
             <a
               className='p-2 hover:bg-slate-100 rounded-md'
               onClick={() => toggleDrawer()}

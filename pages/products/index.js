@@ -17,7 +17,7 @@ const Products = () => {
 
       <div className='mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8'>
         {PRODUCTS.map((product) => (
-          <ProductItem data={product} />
+          <ProductItem data={product} key={product.name} />
           //   <div>
           //     <div className='w-full h-full object-center object-cover lg:w-full lg:h-full'>
 
