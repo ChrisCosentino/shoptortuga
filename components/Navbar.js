@@ -49,8 +49,8 @@ const Navbar = () => {
   };
 
   return (
-    <div class='navbar bg-base-100'>
-      <div class='navbar-start'>
+    <div className='navbar bg-base-100'>
+      <div className='navbar-start'>
         <div className='lg:hidden'>
           <Drawer
             isOpen={mobileNavDrawerIsOpen}
@@ -64,12 +64,12 @@ const Navbar = () => {
           >
             <MobileMenu />
           </Drawer>
-          {/* <label tabindex='0' class='btn btn-ghost lg:hidden'>
+          {/* <label tabindex='0' className='btn btn-ghost lg:hidden'>
             <MenuIcon />
           </label> */}
           {/* <ul
             tabindex='0'
-            class='menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52'
+            className='menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52'
           >
             {MENU_ITEMS.map((item) => {
               if (!item.children) {
@@ -79,12 +79,12 @@ const Navbar = () => {
               return (
                 <li tabindex='0'>
                   <Link href={item.to}>
-                    <a class='justify-between'>
+                    <a className='justify-between'>
                       {item.title}
                       <RightArrowIcon />
                     </a>
                   </Link>
-                  <ul class='p-2'>
+                  <ul className='p-2'>
                     {item.children.map((childItem) => (
                       <li>
                         <Link href={item.to}>
@@ -100,17 +100,17 @@ const Navbar = () => {
         </div>
 
         <Link href='/'>
-          <a class='btn btn-ghost normal-case text-xl'>
+          <a className='btn btn-ghost normal-case text-xl'>
             <Logo />
           </a>
         </Link>
       </div>
-      <div class='navbar-center hidden lg:flex'>
-        <ul class='menu menu-horizontal p-0'>
+      <div className='navbar-center hidden lg:flex'>
+        <ul className='menu menu-horizontal p-0'>
           {MENU_ITEMS.map((item) => {
             if (!item.children) {
               return (
-                <li>
+                <li key={item.slug}>
                   <Link href={item.to}>
                     <a>{item.title}</a>
                   </Link>
@@ -119,16 +119,16 @@ const Navbar = () => {
             }
 
             return (
-              <li tabindex='0'>
+              <li key={item.slug}>
                 <Link href={item.to}>
                   <a>
                     {item.title}
                     <DownArrowIcon />
                   </a>
                 </Link>
-                <ul class='p-2'>
+                <ul className='p-2'>
                   {item.children.map((childItem) => (
-                    <li>
+                    <li key={item.slug}>
                       <Link href={childItem.to}>
                         <a>{childItem.title}</a>
                       </Link>

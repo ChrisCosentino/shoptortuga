@@ -1,4 +1,8 @@
-import Navbar from 'components/Navbar';
+export async function getStaticProps({ params }) {
+  return {
+    props: {},
+  };
+}
 
 const Home = () => {
   return <>Home</>;

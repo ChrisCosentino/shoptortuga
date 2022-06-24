@@ -1,6 +1,10 @@
-import Navbar from 'components/Navbar';
-
 import { PRODUCTS } from 'constants/products';
+
+export async function getStaticProps({ params }) {
+  return {
+    props: {},
+  };
+}
 
 const Products = () => {
   return (
