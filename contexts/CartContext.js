@@ -3,13 +3,11 @@ import PropTypes from 'prop-types';
 
 const CartContext = createContext();
 
-const useCartContext = () => {
+const useCart = () => {
   const context = useContext(CartContext);
 
   if (context === undefined) {
-    throw new Error(
-      'useCartContext must be used inside of a cart context provider'
-    );
+    throw new Error('useCart must be used inside of a CartContext provider');
   }
 
   return context;
@@ -23,7 +21,9 @@ export const CartProvider = ({ children }) => {
   };
 
   return (
-    <CartContext.Provider value={{ cartItems, addItemToCart }}>
+    <CartContext.Provider
+      value={{ cartItems, addItemToCart, cartCount: cartItems.length }}
+    >
       {children}
     </CartContext.Provider>
   );
@@ -33,4 +33,4 @@ CartProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default useCartContext;
+export default useCart;

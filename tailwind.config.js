@@ -12,7 +12,14 @@ module.exports = {
     },
   },
   daisyui: {
-    themes: false,
+    themes: [
+      {
+        light: {
+          ...require('daisyui/src/colors/themes')['[data-theme=light]'],
+          primary: '#5046E5',
+        },
+      },
+    ],
   },
   plugins: [require('daisyui')],
 };

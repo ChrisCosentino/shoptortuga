@@ -21,6 +21,7 @@ const Drawer = ({
         onClose={toggleDrawer}
         direction={direction}
         size={size}
+        duration={250}
       >
         {children}
       </ModernDrawer>

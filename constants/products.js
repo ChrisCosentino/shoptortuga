@@ -8,6 +8,8 @@ export const PRODUCTS = [
     imageAlt: "Front of men's Basic Tee in black.",
     price: '$35',
     color: 'Black',
+    description:
+      'The zip Tote Basket is the perfect midpoint between shopping tote and comfy backpack. With convertible straps you can hand carry, should sling, or backpack this convenient and spacious bag. The zip top and durable canvas construction keeps your goos protected for all-day use.',
   },
   {
     id: 2,
@@ -18,6 +20,8 @@ export const PRODUCTS = [
     imageAlt: "Front of men's Basic Tee in black.",
     price: '$35',
     color: 'Black',
+    description:
+      'The zip Tote Basket is the perfect midpoint between shopping tote and comfy backpack. With convertible straps you can hand carry, should sling, or backpack this convenient and spacious bag. The zip top and durable canvas construction keeps your goos protected for all-day use.',
   },
   {
     id: 3,
@@ -28,6 +32,8 @@ export const PRODUCTS = [
     imageAlt: "Front of men's Basic Tee in black.",
     price: '$35',
     color: 'Black',
+    description:
+      'The zip Tote Basket is the perfect midpoint between shopping tote and comfy backpack. With convertible straps you can hand carry, should sling, or backpack this convenient and spacious bag. The zip top and durable canvas construction keeps your goos protected for all-day use.',
   },
   {
     id: 4,
@@ -37,6 +43,8 @@ export const PRODUCTS = [
     imageAlt: "Front of men's Basic Tee in black.",
     price: '$35',
     color: 'Black',
+    description:
+      'The zip Tote Basket is the perfect midpoint between shopping tote and comfy backpack. With convertible straps you can hand carry, should sling, or backpack this convenient and spacious bag. The zip top and durable canvas construction keeps your goos protected for all-day use.',
   },
   {
     id: 5,
@@ -47,6 +55,8 @@ export const PRODUCTS = [
     imageAlt: "Front of men's Basic Tee in black.",
     price: '$35',
     color: 'Black',
+    description:
+      'The zip Tote Basket is the perfect midpoint between shopping tote and comfy backpack. With convertible straps you can hand carry, should sling, or backpack this convenient and spacious bag. The zip top and durable canvas construction keeps your goos protected for all-day use.',
   },
   {
     id: 6,
@@ -57,5 +67,7 @@ export const PRODUCTS = [
     imageAlt: "Front of men's Basic Tee in black.",
     price: '$35',
     color: 'Black',
+    description:
+      'The zip Tote Basket is the perfect midpoint between shopping tote and comfy backpack. With convertible straps you can hand carry, should sling, or backpack this convenient and spacious bag. The zip top and durable canvas construction keeps your goos protected for all-day use.',
   },
 ];
