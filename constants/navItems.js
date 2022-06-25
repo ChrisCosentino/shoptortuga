@@ -15,9 +15,9 @@ export const MENU_ITEMS = [
     to: '/faq',
   },
   {
-    title: 'Contact Us',
-    slug: 'contact',
-    to: '/contact',
+    title: 'Support',
+    slug: 'support',
+    to: '/support',
   },
   //   {
   //     title: 'Backpacks',

@@ -1,7 +1,6 @@
 import CartIcon from 'assets/CartIcon';
 import DownArrowIcon from 'assets/DownArrowIcon';
 import MenuIcon from 'assets/MenuIcon';
-import RightArrowIcon from 'assets/RightArrowIcon';
 import Logo from 'components/Logo';
 import Link from 'next/link';
 import Drawer from 'components/Drawer';
@@ -11,7 +10,6 @@ import getStripe from 'libs/stripe';
 import { fetchPostJSON } from 'libs/stripeHelpers';
 import useCart from 'contexts/CartContext';
 import Announcement from './Announcement';
-import { useMemo } from 'react';
 import { useRouter } from 'next/router';
 
 const MobileMenu = ({ toggleDrawer }) => {
@@ -43,7 +41,7 @@ const MobileMenu = ({ toggleDrawer }) => {
 const Navbar = () => {
   const [cartDrawerIsOpen, toggleCartDrawer] = useDrawer();
   const [mobileNavDrawerIsOpen, toggleMobileNavDrawer] = useDrawer();
-  const { cartCount } = useCart();
+  const { cartCount, cartItems } = useCart();
   const { pathname } = useRouter();
 
   const handleCheckout = async () => {
@@ -90,51 +88,25 @@ const Navbar = () => {
             >
               <MobileMenu toggleDrawer={toggleMobileNavDrawer} />
             </Drawer>
-            {/* <label tabindex='0' className='btn btn-ghost lg:hidden'>
-            <MenuIcon />
-          </label> */}
-            {/* <ul
-            tabindex='0'
-            className='menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52'
-          >
-            {MENU_ITEMS.map((item) => {
-              if (!item.children) {
-                return <li>{item.title}</li>;
-              }
-
-              return (
-                <li tabindex='0'>
-                  <Link href={item.to}>
-                    <a className='justify-between'>
-                      {item.title}
-                      <RightArrowIcon />
-                    </a>
-                  </Link>
-                  <ul className='p-2'>
-                    {item.children.map((childItem) => (
-                      <li>
-                        <Link href={item.to}>
-                          <a>{childItem.title}</a>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </li>
-              );
-            })}
-          </ul> */}
           </div>
 
           <Logo />
-          {/* <a className='btn btn-ghost normal-case text-xl'>
-            <Logo />
-          </a> */}
         </div>
         <div className='navbar-center hidden lg:flex'>
           <ul className='menu menu-horizontal p-0 gap-2'>
             {MENU_ITEMS.map((item) => {
               if (!item.children) {
                 return (
+                  //       <li>
+                  //         <a href='#' class='block md:px-3'>
+                  //           <div
+                  //             class='relative text-cyan-800
+                  //   before:absolute before:-bottom-7 before:w-full before:h-0.5 before:mx-auto before:mt-auto before:rounded-full before:bg-cyan-800'
+                  //           >
+                  //             <span>Nike</span>
+                  //           </div>
+                  //         </a>
+                  //       </li>
                   <li key={item.slug}>
                     <Link href={item.to}>
                       <a
@@ -175,11 +147,7 @@ const Navbar = () => {
         </div>
         <div className='navbar-end'>
           <p>CAD</p>
-          {/* <select class='select select-ghost w-20'>
-          <option>CAD</option>
-          <option>USD</option>
-          <option>React</option>
-        </select> */}
+
           <Drawer
             isOpen={cartDrawerIsOpen}
             toggleDrawer={toggleCartDrawer}
@@ -189,12 +157,22 @@ const Navbar = () => {
               </a>
             }
           >
-            <h1>
-              Cart
-              <button onClick={() => handleCheckout()} className='btn'>
+            <div className='p-2'>
+              <h1 className='text-lg font-bold'>Cart</h1>
+
+              <div>
+                {cartItems?.map((item) => (
+                  <div key={item.name}>{item.name}</div>
+                ))}
+              </div>
+
+              <button
+                onClick={() => handleCheckout()}
+                className='btn btn-block'
+              >
                 Checkout
               </button>
-            </h1>
+            </div>
           </Drawer>
         </div>
       </div>
