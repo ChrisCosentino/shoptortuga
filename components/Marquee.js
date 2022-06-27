@@ -11,6 +11,7 @@ const Marquee = () => {
     >
       {PRODUCTS.map((product) => (
         <img
+          key={product.id}
           src={product?.imageSrc}
           alt={product.imageAlt}
           style={{ height: 170 }}
