@@ -6,8 +6,8 @@
   html {
     @apply font-inter;
   }
+}
 
-  .btn {
-    @apply normal-case;
-  }
+.btn {
+  text-transform: inherit;
 }

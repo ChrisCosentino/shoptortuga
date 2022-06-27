@@ -1,6 +1,7 @@
 import Hero from 'components/Hero';
 import Features from 'components/Features';
 import SupportCTA from 'components/SupportCTA';
+import Marquee from 'components/Marquee';
 
 export async function getStaticProps({ params }) {
   return {
@@ -11,9 +12,12 @@ export async function getStaticProps({ params }) {
 const Home = () => {
   return (
     <>
-      <Hero />
-      <Features />
-      <SupportCTA />
+      <div className='container m-auto'>
+        <Hero />
+        <Marquee />
+        <Features />
+        <SupportCTA />
+      </div>
     </>
   );
 };

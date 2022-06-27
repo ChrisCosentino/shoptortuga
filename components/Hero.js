@@ -96,9 +96,10 @@ const Hero = () => {
                 <img
                   src='https://images.unsplash.com/photo-1561810051-503ed3ef1089?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2970&q=80'
                   alt='heroImg'
-                  loading='lazy'
+                  // loading='lazy'
                   width='640'
                   height='640'
+                  className='rounded-lg'
                 />
                 {/* <div className='absolute bottom-2 right-2 bg-white'>
                   <div className='flex p-1'>

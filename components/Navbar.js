@@ -6,11 +6,16 @@ import Link from 'next/link';
 import Drawer from 'components/Drawer';
 import useDrawer from 'hooks/useDrawer';
 import { MENU_ITEMS } from 'constants/navItems';
-import getStripe from 'libs/stripe';
 import { fetchPostJSON } from 'libs/stripeHelpers';
 import useCart from 'contexts/CartContext';
 import Announcement from './Announcement';
 import { useRouter } from 'next/router';
+
+// import dynamic from 'next/dynamic';
+
+// const getStripe = dynamic(() => import('libs/stripe'));
+
+import getStripe from 'libs/stripe';
 
 const MobileMenu = ({ toggleDrawer }) => {
   const { pathname } = useRouter();
@@ -45,12 +50,6 @@ const Navbar = () => {
   const { pathname } = useRouter();
 
   const handleCheckout = async () => {
-    // const checkoutSession = await fetch('/api/checkout_sessions', {
-    //   body: {
-    //     amount: 21,
-    //   },
-    //   method: 'POST',
-    // });
     const response = await fetchPostJSON('/api/checkout_sessions', {
       amount: 20,
     });
@@ -168,7 +167,7 @@ const Navbar = () => {
 
               <button
                 onClick={() => handleCheckout()}
-                className='btn btn-block'
+                className='btn btn-block bg-primary'
               >
                 Checkout
               </button>
