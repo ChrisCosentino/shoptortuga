@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import { PRODUCTS } from 'constants/products';
 import ColorButtons from 'components/ColorButtons';
 import BackIcon from 'assets/BackIcon';
-import Link from 'next/link';
 import useCart from 'contexts/CartContext';
 import QuantityStepper from 'components/QuantityStepper';
+import BackBtn from 'components/BackBtn';
 
 export async function getServerSideProps(context) {
   const { id } = context.query;
@@ -37,11 +37,7 @@ const ProductDetails = ({ product }) => {
 
   return (
     <div className='max-w-[1232px] ml-auto mr-auto p-8 pt-4'>
-      <Link href='/products'>
-        <a className='btn btn-ghost mb-4'>
-          <BackIcon /> Back
-        </a>
-      </Link>
+      <BackBtn />
 
       <div className='flex gap-6'>
         <div className='flex-1 '>

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import CartIcon from 'assets/CartIcon';
 import DownArrowIcon from 'assets/DownArrowIcon';
 import MenuIcon from 'assets/MenuIcon';
@@ -48,8 +49,11 @@ const Navbar = () => {
   const [mobileNavDrawerIsOpen, toggleMobileNavDrawer] = useDrawer();
   const { cartCount, cartItems } = useCart();
   const { pathname } = useRouter();
+  const [loadingStripe, setLoadingStripe] = useState(false);
 
   const handleCheckout = async () => {
+    setLoadingStripe(true);
+
     const response = await fetchPostJSON('/api/checkout_sessions', {
       amount: 20,
     });
@@ -65,6 +69,8 @@ const Navbar = () => {
     const { error } = await stripe.redirectToCheckout({
       sessionId: response.id,
     });
+
+    setLoadingStripe(false);
 
     console.warn(error.message);
   };
@@ -92,7 +98,7 @@ const Navbar = () => {
           <Logo />
         </div>
         <div className='navbar-center hidden lg:flex'>
-          <ul className='menu menu-horizontal p-0 gap-2'>
+          <ul className='menu menu-horizontal p-0 gap-2 '>
             {MENU_ITEMS.map((item) => {
               if (!item.children) {
                 return (
@@ -109,9 +115,9 @@ const Navbar = () => {
                   <li key={item.slug}>
                     <Link href={item.to}>
                       <a
-                        className={`${
+                        className={`decoration-primary bg-transparent hover:bg-transparent underline-offset-4 hover:underline hover:decoration-4 ${
                           pathname.includes(item.to)
-                            ? 'bg-primary text-white'
+                            ? 'underline decoration-4'
                             : ''
                         }`}
                       >
@@ -167,7 +173,9 @@ const Navbar = () => {
 
               <button
                 onClick={() => handleCheckout()}
-                className='btn btn-block bg-primary'
+                className={`btn btn-block bg-primary ${
+                  loadingStripe ? 'loading' : ''
+                }`}
               >
                 Checkout
               </button>

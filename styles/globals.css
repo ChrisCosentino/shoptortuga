@@ -11,3 +11,11 @@
 .btn {
   text-transform: inherit;
 }
+
+.outer-btn .inner-icon {
+  transition: transform 0.3s ease;
+}
+
+.outer-btn:hover .inner-icon {
+  transform: translateX(-5px);
+}
